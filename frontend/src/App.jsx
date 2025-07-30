@@ -13,6 +13,9 @@ function App() {
   return (
     <>
       <h1 class="text-5xl font-bold underline underline"> Hello world! </h1>
+      <h3 class="text-5xl font-bold underline underline"> Hello world! </h3>
+      <h5 class="text-5xl font-bold underline underline"> Hello world! </h5>
+      <p> Hello world! </p>
       {/*  */}
     </>
   );
