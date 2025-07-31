@@ -13,5 +13,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  // base: process.env.VITE_BASE_PATH || "E-WEBSITE/tree/main/frontend",
+  base: process.env.VITE_BASE_PATH || "E-WEBSITE/tree/main/frontend",
 });
