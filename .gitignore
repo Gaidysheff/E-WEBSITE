@@ -9,7 +9,7 @@ env.bak/
 venv.bak/
 
 # dependencies
-/node_modules
+**/node_modules
 /.pnp
 .pnp.js
 
@@ -96,10 +96,3 @@ local_settings.py
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
 __pypackages__/
-
-# Local Netlify folder
-.netlify
-
-.schema.yml
-
-
