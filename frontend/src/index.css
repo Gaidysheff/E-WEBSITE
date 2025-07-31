@@ -1,1 +1,26 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@theme {
+  --breakpoint-2xsm: 400px;
+  --breakpoint-xsm: 500px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+@theme {
+  /* --color-primary: #ffd10f;
+  --color-primaryDark: #a68705;
+  --color-primaryLight: #ffe67b; */
+  --color-primaryLight: oklch(0.869 0.022 252.894);
+  --color-primary: oklch(0.554 0.046 257.417);
+  --color-primaryDark: oklch(0.129 0.042 264.695);
+}

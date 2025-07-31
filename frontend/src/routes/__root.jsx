@@ -2,6 +2,9 @@ import * as React from "react";
 
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 
+import Footer from "./../components/footer/Footer.jsx";
+import NavBar from "./../components/navbar/NavBar.jsx";
+
 export const Route = createRootRoute({
   component: RootComponent,
 });
@@ -9,8 +12,13 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <React.Fragment>
-      <div className="text-5xl">Hello "__root"!</div>
-      <Outlet />
+      <NavBar />
+
+      <div class="container">
+        <Outlet />
+      </div>
+
+      <Footer />
     </React.Fragment>
   );
 }

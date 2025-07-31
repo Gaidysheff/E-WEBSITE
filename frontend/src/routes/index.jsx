@@ -5,5 +5,17 @@ export const Route = createFileRoute("/")({
 });
 
 function RouteComponent() {
-  return <div className="text-2xl">Hello, I am Index-Page "/"!</div>;
+  return (
+    <main className="min-h-[90vh]">
+      <section className="text-2xl text-primaryLight">
+        Hello, I am Index-Page "/"!
+      </section>
+      <section className="text-2xl text-primary">
+        Hello, I am Index-Page "/"!
+      </section>
+      <section className="text-2xl text-primaryDark">
+        Hello, I am Index-Page "/"!
+      </section>
+    </main>
+  );
 }
