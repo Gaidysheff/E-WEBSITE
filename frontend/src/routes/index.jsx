@@ -10,11 +10,11 @@ function RouteComponent() {
       <section className="text-2xl text-primaryLight">
         Hello, I am Index-Page "/"!
       </section>
-      <section className="text-2xl text-primary">
+      <section className="text-2xl text-primaryBase italic">
         Hello, I am Index-Page "/"!
       </section>
-      <section className="text-2xl text-primaryDark">
-        Hello, I am Index-Page "/"!
+      <section className="text-2xl text-primaryDark font-bold">
+        Привет, Я Главная страница "/"!
       </section>
     </main>
   );

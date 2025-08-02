@@ -12,13 +12,15 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <React.Fragment>
-      <NavBar />
+      <div className="font-Comfort">
+        <NavBar />
 
-      <div class="container">
-        <Outlet />
+        <div className="container">
+          <Outlet />
+        </div>
+
+        <Footer />
       </div>
-
-      <Footer />
     </React.Fragment>
   );
 }
