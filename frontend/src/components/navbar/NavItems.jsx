@@ -34,7 +34,7 @@ const NavItems = ({ mobile }) => {
         <FaCartShopping className="text-4xl" />
 
         <span
-          className="absolute top-0 right-0 px-2 py-1 bg-black rounded-full 
+          className="absolute top-0 right-0 px-3 py-1 bg-red-500 rounded-full 
           text-white"
         >
           3
