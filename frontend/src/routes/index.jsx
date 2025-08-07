@@ -1,3 +1,5 @@
+import Hero from "./../components/hero/Hero.jsx";
+import Introduction from "./../components/introduction/Introduction.jsx";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -7,15 +9,8 @@ export const Route = createFileRoute("/")({
 function RouteComponent() {
   return (
     <main className="min-h-[90vh]">
-      <section className="text-2xl text-primaryLight">
-        Hello, I am Index-Page "/"!
-      </section>
-      <section className="text-2xl text-primaryBase italic">
-        Hello, I am Index-Page "/"!
-      </section>
-      <section className="text-2xl text-primaryDark font-bold">
-        Привет, Я Главная страница "/"!
-      </section>
+      <Introduction />
+      <Hero />
     </main>
   );
 }

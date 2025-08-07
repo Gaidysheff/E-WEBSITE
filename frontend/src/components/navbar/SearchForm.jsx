@@ -11,8 +11,9 @@ const SearchForm = () => {
       />
 
       <button
-        className="size-[30px] rounded-full bg-black flex justify-center 
-        items-center cursor-pointer text-white"
+        className="size-[30px] rounded-full flex justify-center items-center 
+        bg-primaryDark text-primaryLight hover:bg-primaryDark/50 
+        group/btn transition duration-300 hover:scale-110 cursor-pointer"
       >
         <Search className="size-4" />
       </button>

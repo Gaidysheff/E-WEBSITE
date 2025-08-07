@@ -1,10 +1,18 @@
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 
-// Import the generated route tree
+import Error404notFound from "./components/notFound/Error404notFound.jsx";
 import { routeTree } from "./routeTree.gen";
 
-// Create a new router instance
-const router = createRouter({ routeTree });
+const router = createRouter({
+  routeTree,
+  defaultNotFoundComponent: () => {
+    return (
+      <div>
+        <Error404notFound />
+      </div>
+    );
+  },
+});
 
 function App() {
   return <RouterProvider router={router} />;

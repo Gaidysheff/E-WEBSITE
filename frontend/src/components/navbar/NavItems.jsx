@@ -10,18 +10,24 @@ const NavItems = ({ mobile }) => {
         mobile ? "flex-col" : "flex-row"
       )}
     >
-      <div
-        className="w-[50px] h-[50px] rounded-full overflow-hidden border-2 
-        border-black shadow-md"
-      >
-        {/* Profile picture container */}
-      </div>
-
       <Link
         href="/profile"
-        className="text-lg font-medium text-gray-900 hover:text-gray-700 transition"
+        className="flex items-center justify-between group/profile
+        transition duration-300 hover:scale-110"
       >
-        Ivan Ivanov
+        <div
+          className="w-[50px] h-[50px] rounded-full overflow-hidden border-2 
+          border-primaryDark shadow-md mr-3"
+        >
+          {/* Profile picture container */}
+        </div>
+
+        <div
+          className="text-lg font-medium text-primaryDark 
+          group-hover/profile:text-primaryDark/50 "
+        >
+          Ivan Ivanov
+        </div>
       </Link>
 
       <button className="nav-btn">Logout</button>
@@ -29,13 +35,16 @@ const NavItems = ({ mobile }) => {
 
       <div
         className="relative flex items-center h-[60px] w-[60px] justify-center 
-        cursor-pointer"
+        cursor-pointer group/cart hover:scale-110"
       >
-        <FaCartShopping className="text-4xl" />
+        <FaCartShopping
+          className="text-4xl text-primaryDark hover:text-primaryDark/50 
+        transition duration-300"
+        />
 
         <span
           className="absolute top-0 right-0 px-3 py-1 bg-red-500 rounded-full 
-          text-white"
+          text-white group-hover/cart:bg-red-400"
         >
           3
         </span>
