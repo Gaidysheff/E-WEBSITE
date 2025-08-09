@@ -17,7 +17,10 @@ const NavBar = () => {
   };
   return (
     <>
-      <nav className="bg-card sticky top-0 z-20 w-full py-4">
+      <nav
+        className="bg-card sticky top-0 z-20 w-full py-4
+        border-b border-primaryLight"
+      >
         <div className="container">
           <div className="flex justify-between items-center main-max-width">
             <div className="w-full flex justify-between items-center">

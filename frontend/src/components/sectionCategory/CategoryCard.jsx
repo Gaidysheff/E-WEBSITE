@@ -3,8 +3,8 @@ import { Laptop } from "lucide-react";
 const CategoryCard = () => {
   return (
     <div
-      className="w-[160px] h-[90px] sm:w-[220px] sm:h-[120px] bg-card rounded-2xl 
-			flex flex-col items-center justify-center p-4 shadow-xl
+      className="w-[160px] h-[90px] sm:w-[220px] sm:h-[120px] bg-card  
+			flex flex-col items-center justify-center p-4 shadow-xl rounded-2xl
       dark:drop-shadow-[5px_5px_5px_rgba(255,255,255,0.25)]
 			transition-transform duration-300 hover:scale-110 cursor-pointer"
     >

@@ -2,7 +2,7 @@ import { Search } from "lucide-react";
 
 const SearchForm = () => {
   return (
-    <form action="/" scroll={false} className="search-form">
+    <form action="/" scroll={"false"} className="search-form">
       <input
         type="text"
         name="query"
