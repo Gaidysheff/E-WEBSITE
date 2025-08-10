@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CartIndexRouteImport } from './routes/cart/index'
+import { Route as ProductsSlugRouteImport } from './routes/products/$slug'
 import { Route as CategoriesCategoryIdRouteImport } from './routes/categories/$categoryId'
 import { Route as CartCartcodeRouteImport } from './routes/cart/$cartcode'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const CartIndexRoute = CartIndexRouteImport.update({
   id: '/cart/',
   path: '/cart/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsSlugRoute = ProductsSlugRouteImport.update({
+  id: '/products/$slug',
+  path: '/products/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CategoriesCategoryIdRoute = CategoriesCategoryIdRouteImport.update({
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cart/$cartcode': typeof CartCartcodeRoute
   '/categories/$categoryId': typeof CategoriesCategoryIdRoute
+  '/products/$slug': typeof ProductsSlugRoute
   '/cart': typeof CartIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cart/$cartcode': typeof CartCartcodeRoute
   '/categories/$categoryId': typeof CategoriesCategoryIdRoute
+  '/products/$slug': typeof ProductsSlugRoute
   '/cart': typeof CartIndexRoute
 }
 export interface FileRoutesById {
@@ -52,18 +60,30 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/cart/$cartcode': typeof CartCartcodeRoute
   '/categories/$categoryId': typeof CategoriesCategoryIdRoute
+  '/products/$slug': typeof ProductsSlugRoute
   '/cart/': typeof CartIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cart/$cartcode' | '/categories/$categoryId' | '/cart'
+  fullPaths:
+    | '/'
+    | '/cart/$cartcode'
+    | '/categories/$categoryId'
+    | '/products/$slug'
+    | '/cart'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cart/$cartcode' | '/categories/$categoryId' | '/cart'
+  to:
+    | '/'
+    | '/cart/$cartcode'
+    | '/categories/$categoryId'
+    | '/products/$slug'
+    | '/cart'
   id:
     | '__root__'
     | '/'
     | '/cart/$cartcode'
     | '/categories/$categoryId'
+    | '/products/$slug'
     | '/cart/'
   fileRoutesById: FileRoutesById
 }
@@ -71,6 +91,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CartCartcodeRoute: typeof CartCartcodeRoute
   CategoriesCategoryIdRoute: typeof CategoriesCategoryIdRoute
+  ProductsSlugRoute: typeof ProductsSlugRoute
   CartIndexRoute: typeof CartIndexRoute
 }
 
@@ -88,6 +109,13 @@ declare module '@tanstack/react-router' {
       path: '/cart'
       fullPath: '/cart'
       preLoaderRoute: typeof CartIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/$slug': {
+      id: '/products/$slug'
+      path: '/products/$slug'
+      fullPath: '/products/$slug'
+      preLoaderRoute: typeof ProductsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/categories/$categoryId': {
@@ -111,6 +139,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CartCartcodeRoute: CartCartcodeRoute,
   CategoriesCategoryIdRoute: CategoriesCategoryIdRoute,
+  ProductsSlugRoute: ProductsSlugRoute,
   CartIndexRoute: CartIndexRoute,
 }
 export const routeTree = rootRouteImport

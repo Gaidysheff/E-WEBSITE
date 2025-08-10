@@ -249,7 +249,7 @@
   } */
 
   .default-btn {
-    @apply w-[200px] max-xsm:w-full h-[45px] rounded-md
+    @apply w-[250px] max-xsm:w-full h-[45px] rounded-md
     bg-primaryDark border-2 border-primaryDark
     text-sm xsm:text-lg text-primaryLight transition cursor-pointer
     hover:bg-primaryBase hover:scale-105 transition-all duration-300
@@ -259,11 +259,24 @@
     flex items-center justify-center;
   }
 
+  .product-btn {
+    @apply w-[200px] max-md:w-full h-[45px] rounded-md bg-primaryDark 
+            border-2 border-primaryLight text-sm xsm:text-lg text-primaryLight 
+            transition cursor-pointer flex items-center justify-center
+            hover:bg-primaryBase hover:scale-105 transition-all duration-300
+            disabled:opacity-50 disabled:cursor-not-allowed
+            drop-shadow-[5px_5px_5px_rgba(0,0,0,0.5)]
+            dark:shadow-[5px_5px_5px_rgba(255,255,255,0.5)];
+  }
+
   .wish-btn {
-    @apply cursor-pointer w-[200px] max-md:w-full h-[42px] bg-white border-2 
-    border-black text-black font-medium rounded-md flex items-center 
-    justify-center text-[14px] transition-all duration-300 hover:bg-black 
-    hover:text-white disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply w-[200px] max-md:w-full h-[45px] rounded-md bg-primaryLight 
+            border-2 border-primaryDark text-sm xsm:text-lg text-primaryDark 
+            transition cursor-pointer flex items-center justify-center
+            hover:bg-primaryBase hover:scale-105 transition-all duration-300
+            disabled:opacity-50 disabled:cursor-not-allowed
+            drop-shadow-[5px_5px_5px_rgba(255,255,255,0.5)]
+            dark:shadow-[5px_5px_5px_rgba(0,0,0,0.5)];
   }
 
   .checkout-btn {
