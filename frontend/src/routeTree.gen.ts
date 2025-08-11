@@ -8,161 +8,183 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as ProfileRouteImport } from './routes/profile'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as CartIndexRouteImport } from './routes/cart/index'
-import { Route as ProductsSlugRouteImport } from './routes/products/$slug'
-import { Route as CategoriesCategoryIdRouteImport } from './routes/categories/$categoryId'
-import { Route as CartCartcodeRouteImport } from './routes/cart/$cartcode'
+import { Route as AuthenticationSignIn_jwt_googleRouteImport } from "./routes/_authentication/signin_jwt_google";
+import { Route as CartCartcodeRouteImport } from "./routes/cart/$cartcode";
+import { Route as CartIndexRouteImport } from "./routes/cart/index";
+import { Route as CategoriesCategoryIdRouteImport } from "./routes/categories/$categoryId";
+import { Route as IndexRouteImport } from "./routes/index";
+import { Route as ProductsSlugRouteImport } from "./routes/products/$slug";
+import { Route as ProfileRouteImport } from "./routes/profile";
+import { Route as rootRouteImport } from "./routes/__root";
 
 const ProfileRoute = ProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
+  id: "/profile",
+  path: "/profile",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const CartIndexRoute = CartIndexRouteImport.update({
-  id: '/cart/',
-  path: '/cart/',
+  id: "/cart/",
+  path: "/cart/",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ProductsSlugRoute = ProductsSlugRouteImport.update({
-  id: '/products/$slug',
-  path: '/products/$slug',
+  id: "/products/$slug",
+  path: "/products/$slug",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const CategoriesCategoryIdRoute = CategoriesCategoryIdRouteImport.update({
-  id: '/categories/$categoryId',
-  path: '/categories/$categoryId',
+  id: "/categories/$categoryId",
+  path: "/categories/$categoryId",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const CartCartcodeRoute = CartCartcodeRouteImport.update({
-  id: '/cart/$cartcode',
-  path: '/cart/$cartcode',
+  id: "/cart/$cartcode",
+  path: "/cart/$cartcode",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
+const AuthenticationSignIn_jwt_googleRoute =
+  AuthenticationSignIn_jwt_googleRouteImport.update({
+    id: "/_authentication/signIn_jwt_google",
+    path: "/signIn_jwt_google",
+    getParentRoute: () => rootRouteImport,
+  } as any);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/profile': typeof ProfileRoute
-  '/cart/$cartcode': typeof CartCartcodeRoute
-  '/categories/$categoryId': typeof CategoriesCategoryIdRoute
-  '/products/$slug': typeof ProductsSlugRoute
-  '/cart': typeof CartIndexRoute
+  "/": typeof IndexRoute;
+  "/profile": typeof ProfileRoute;
+  "/signIn_jwt_google": typeof AuthenticationSignIn_jwt_googleRoute;
+  "/cart/$cartcode": typeof CartCartcodeRoute;
+  "/categories/$categoryId": typeof CategoriesCategoryIdRoute;
+  "/products/$slug": typeof ProductsSlugRoute;
+  "/cart": typeof CartIndexRoute;
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/profile': typeof ProfileRoute
-  '/cart/$cartcode': typeof CartCartcodeRoute
-  '/categories/$categoryId': typeof CategoriesCategoryIdRoute
-  '/products/$slug': typeof ProductsSlugRoute
-  '/cart': typeof CartIndexRoute
+  "/": typeof IndexRoute;
+  "/profile": typeof ProfileRoute;
+  "/signIn_jwt_google": typeof AuthenticationSignIn_jwt_googleRoute;
+  "/cart/$cartcode": typeof CartCartcodeRoute;
+  "/categories/$categoryId": typeof CategoriesCategoryIdRoute;
+  "/products/$slug": typeof ProductsSlugRoute;
+  "/cart": typeof CartIndexRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/profile': typeof ProfileRoute
-  '/cart/$cartcode': typeof CartCartcodeRoute
-  '/categories/$categoryId': typeof CategoriesCategoryIdRoute
-  '/products/$slug': typeof ProductsSlugRoute
-  '/cart/': typeof CartIndexRoute
+  __root__: typeof rootRouteImport;
+  "/": typeof IndexRoute;
+  "/profile": typeof ProfileRoute;
+  "/_authentication/signIn_jwt_google": typeof AuthenticationSignIn_jwt_googleRoute;
+  "/cart/$cartcode": typeof CartCartcodeRoute;
+  "/categories/$categoryId": typeof CategoriesCategoryIdRoute;
+  "/products/$slug": typeof ProductsSlugRoute;
+  "/cart/": typeof CartIndexRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
+  fileRoutesByFullPath: FileRoutesByFullPath;
   fullPaths:
-    | '/'
-    | '/profile'
-    | '/cart/$cartcode'
-    | '/categories/$categoryId'
-    | '/products/$slug'
-    | '/cart'
-  fileRoutesByTo: FileRoutesByTo
+    | "/"
+    | "/profile"
+    | "/signIn_jwt_google"
+    | "/cart/$cartcode"
+    | "/categories/$categoryId"
+    | "/products/$slug"
+    | "/cart";
+  fileRoutesByTo: FileRoutesByTo;
   to:
-    | '/'
-    | '/profile'
-    | '/cart/$cartcode'
-    | '/categories/$categoryId'
-    | '/products/$slug'
-    | '/cart'
+    | "/"
+    | "/profile"
+    | "/signIn_jwt_google"
+    | "/cart/$cartcode"
+    | "/categories/$categoryId"
+    | "/products/$slug"
+    | "/cart";
   id:
-    | '__root__'
-    | '/'
-    | '/profile'
-    | '/cart/$cartcode'
-    | '/categories/$categoryId'
-    | '/products/$slug'
-    | '/cart/'
-  fileRoutesById: FileRoutesById
+    | "__root__"
+    | "/"
+    | "/profile"
+    | "/_authentication/signIn_jwt_google"
+    | "/cart/$cartcode"
+    | "/categories/$categoryId"
+    | "/products/$slug"
+    | "/cart/";
+  fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  ProfileRoute: typeof ProfileRoute
-  CartCartcodeRoute: typeof CartCartcodeRoute
-  CategoriesCategoryIdRoute: typeof CategoriesCategoryIdRoute
-  ProductsSlugRoute: typeof ProductsSlugRoute
-  CartIndexRoute: typeof CartIndexRoute
+  IndexRoute: typeof IndexRoute;
+  ProfileRoute: typeof ProfileRoute;
+  AuthenticationSignIn_jwt_googleRoute: typeof AuthenticationSignIn_jwt_googleRoute;
+  CartCartcodeRoute: typeof CartCartcodeRoute;
+  CategoriesCategoryIdRoute: typeof CategoriesCategoryIdRoute;
+  ProductsSlugRoute: typeof ProductsSlugRoute;
+  CartIndexRoute: typeof CartIndexRoute;
 }
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/profile': {
-      id: '/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof ProfileRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cart/': {
-      id: '/cart/'
-      path: '/cart'
-      fullPath: '/cart'
-      preLoaderRoute: typeof CartIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products/$slug': {
-      id: '/products/$slug'
-      path: '/products/$slug'
-      fullPath: '/products/$slug'
-      preLoaderRoute: typeof ProductsSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/categories/$categoryId': {
-      id: '/categories/$categoryId'
-      path: '/categories/$categoryId'
-      fullPath: '/categories/$categoryId'
-      preLoaderRoute: typeof CategoriesCategoryIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cart/$cartcode': {
-      id: '/cart/$cartcode'
-      path: '/cart/$cartcode'
-      fullPath: '/cart/$cartcode'
-      preLoaderRoute: typeof CartCartcodeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
+    "/profile": {
+      id: "/profile";
+      path: "/profile";
+      fullPath: "/profile";
+      preLoaderRoute: typeof ProfileRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/": {
+      id: "/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof IndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/cart/": {
+      id: "/cart/";
+      path: "/cart";
+      fullPath: "/cart";
+      preLoaderRoute: typeof CartIndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/products/$slug": {
+      id: "/products/$slug";
+      path: "/products/$slug";
+      fullPath: "/products/$slug";
+      preLoaderRoute: typeof ProductsSlugRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/categories/$categoryId": {
+      id: "/categories/$categoryId";
+      path: "/categories/$categoryId";
+      fullPath: "/categories/$categoryId";
+      preLoaderRoute: typeof CategoriesCategoryIdRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/cart/$cartcode": {
+      id: "/cart/$cartcode";
+      path: "/cart/$cartcode";
+      fullPath: "/cart/$cartcode";
+      preLoaderRoute: typeof CartCartcodeRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/_authentication/signIn_jwt_google": {
+      id: "/_authentication/signIn_jwt_google";
+      path: "/signIn_jwt_google";
+      fullPath: "/signIn_jwt_google";
+      preLoaderRoute: typeof AuthenticationSignIn_jwt_googleRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProfileRoute: ProfileRoute,
+  AuthenticationSignIn_jwt_googleRoute: AuthenticationSignIn_jwt_googleRoute,
   CartCartcodeRoute: CartCartcodeRoute,
   CategoriesCategoryIdRoute: CategoriesCategoryIdRoute,
   ProductsSlugRoute: ProductsSlugRoute,
   CartIndexRoute: CartIndexRoute,
-}
+};
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
