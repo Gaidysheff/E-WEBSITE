@@ -1,8 +1,9 @@
+import { createFileRoute, redirect } from "@tanstack/react-router";
+
 import Orders from "@/components/order/Orders.jsx";
 import Wishlist from "@/components/wishlist/Wishlist.jsx";
-import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/profile")({
+export const Route = createFileRoute("/_authenticated/profile")({
   component: ProfilePage,
 });
 
