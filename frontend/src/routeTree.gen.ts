@@ -19,8 +19,8 @@ import { Route as AuthenticationSignin_jwt_googleRouteImport } from './routes/_a
 import { Route as AuthenticationRegisterRouteImport } from './routes/_authentication/register'
 import { Route as AuthenticationLogoutRouteImport } from './routes/_authentication/logout'
 import { Route as AuthenticationLoginRouteImport } from './routes/_authentication/login'
-import { Route as AuthenticatedProtectedRouteImport } from './routes/_authenticated/protected'
 import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
+import { Route as AuthenticatedNotesRouteImport } from './routes/_authenticated/notes'
 
 const AuthenticatedRoute = AuthenticatedRouteImport.update({
   id: '/_authenticated',
@@ -72,21 +72,21 @@ const AuthenticationLoginRoute = AuthenticationLoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedProtectedRoute = AuthenticatedProtectedRouteImport.update({
-  id: '/protected',
-  path: '/protected',
-  getParentRoute: () => AuthenticatedRoute,
-} as any)
 const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
+const AuthenticatedNotesRoute = AuthenticatedNotesRouteImport.update({
+  id: '/notes',
+  path: '/notes',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/notes': typeof AuthenticatedNotesRoute
   '/profile': typeof AuthenticatedProfileRoute
-  '/protected': typeof AuthenticatedProtectedRoute
   '/login': typeof AuthenticationLoginRoute
   '/logout': typeof AuthenticationLogoutRoute
   '/register': typeof AuthenticationRegisterRoute
@@ -98,8 +98,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/notes': typeof AuthenticatedNotesRoute
   '/profile': typeof AuthenticatedProfileRoute
-  '/protected': typeof AuthenticatedProtectedRoute
   '/login': typeof AuthenticationLoginRoute
   '/logout': typeof AuthenticationLogoutRoute
   '/register': typeof AuthenticationRegisterRoute
@@ -113,8 +113,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteWithChildren
+  '/_authenticated/notes': typeof AuthenticatedNotesRoute
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
-  '/_authenticated/protected': typeof AuthenticatedProtectedRoute
   '/_authentication/login': typeof AuthenticationLoginRoute
   '/_authentication/logout': typeof AuthenticationLogoutRoute
   '/_authentication/register': typeof AuthenticationRegisterRoute
@@ -128,8 +128,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/notes'
     | '/profile'
-    | '/protected'
     | '/login'
     | '/logout'
     | '/register'
@@ -141,8 +141,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/notes'
     | '/profile'
-    | '/protected'
     | '/login'
     | '/logout'
     | '/register'
@@ -155,8 +155,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_authenticated'
+    | '/_authenticated/notes'
     | '/_authenticated/profile'
-    | '/_authenticated/protected'
     | '/_authentication/login'
     | '/_authentication/logout'
     | '/_authentication/register'
@@ -252,13 +252,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticationLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/protected': {
-      id: '/_authenticated/protected'
-      path: '/protected'
-      fullPath: '/protected'
-      preLoaderRoute: typeof AuthenticatedProtectedRouteImport
-      parentRoute: typeof AuthenticatedRoute
-    }
     '/_authenticated/profile': {
       id: '/_authenticated/profile'
       path: '/profile'
@@ -266,17 +259,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedProfileRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/_authenticated/notes': {
+      id: '/_authenticated/notes'
+      path: '/notes'
+      fullPath: '/notes'
+      preLoaderRoute: typeof AuthenticatedNotesRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
   }
 }
 
 interface AuthenticatedRouteChildren {
+  AuthenticatedNotesRoute: typeof AuthenticatedNotesRoute
   AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
-  AuthenticatedProtectedRoute: typeof AuthenticatedProtectedRoute
 }
 
 const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
+  AuthenticatedNotesRoute: AuthenticatedNotesRoute,
   AuthenticatedProfileRoute: AuthenticatedProfileRoute,
-  AuthenticatedProtectedRoute: AuthenticatedProtectedRoute,
 }
 
 const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
