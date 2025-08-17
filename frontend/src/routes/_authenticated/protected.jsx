@@ -12,9 +12,11 @@ export const Route = createFileRoute("/_authenticated/protected")({
 function ProtectedPage({ children }) {
 
     const [isAuthorized, setIsAuthorized] = useState(null);
+    console.log("🚀 isAuthorized-1:", isAuthorized)
 
     useEffect(() => {
         auth().catch(() => setIsAuthorized(false))
+        console.log("🚀 isAuthorized-2:", isAuthorized)
     }, [])
 
     const refreshToken = async () => {
@@ -66,3 +68,5 @@ function ProtectedPage({ children }) {
     return isAuthorized ? children : redirect({to:"/login"});
 
 }
+
+

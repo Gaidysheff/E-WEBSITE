@@ -17,6 +17,7 @@ import { Route as CategoriesCategoryIdRouteImport } from './routes/categories/$c
 import { Route as CartCartcodeRouteImport } from './routes/cart/$cartcode'
 import { Route as AuthenticationSignin_jwt_googleRouteImport } from './routes/_authentication/signin_jwt_google'
 import { Route as AuthenticationRegisterRouteImport } from './routes/_authentication/register'
+import { Route as AuthenticationLogoutRouteImport } from './routes/_authentication/logout'
 import { Route as AuthenticationLoginRouteImport } from './routes/_authentication/login'
 import { Route as AuthenticatedProtectedRouteImport } from './routes/_authenticated/protected'
 import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
@@ -61,6 +62,11 @@ const AuthenticationRegisterRoute = AuthenticationRegisterRouteImport.update({
   path: '/register',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticationLogoutRoute = AuthenticationLogoutRouteImport.update({
+  id: '/_authentication/logout',
+  path: '/logout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticationLoginRoute = AuthenticationLoginRouteImport.update({
   id: '/_authentication/login',
   path: '/login',
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/profile': typeof AuthenticatedProfileRoute
   '/protected': typeof AuthenticatedProtectedRoute
   '/login': typeof AuthenticationLoginRoute
+  '/logout': typeof AuthenticationLogoutRoute
   '/register': typeof AuthenticationRegisterRoute
   '/signin_jwt_google': typeof AuthenticationSignin_jwt_googleRoute
   '/cart/$cartcode': typeof CartCartcodeRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/profile': typeof AuthenticatedProfileRoute
   '/protected': typeof AuthenticatedProtectedRoute
   '/login': typeof AuthenticationLoginRoute
+  '/logout': typeof AuthenticationLogoutRoute
   '/register': typeof AuthenticationRegisterRoute
   '/signin_jwt_google': typeof AuthenticationSignin_jwt_googleRoute
   '/cart/$cartcode': typeof CartCartcodeRoute
@@ -108,6 +116,7 @@ export interface FileRoutesById {
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/_authenticated/protected': typeof AuthenticatedProtectedRoute
   '/_authentication/login': typeof AuthenticationLoginRoute
+  '/_authentication/logout': typeof AuthenticationLogoutRoute
   '/_authentication/register': typeof AuthenticationRegisterRoute
   '/_authentication/signin_jwt_google': typeof AuthenticationSignin_jwt_googleRoute
   '/cart/$cartcode': typeof CartCartcodeRoute
@@ -122,6 +131,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/protected'
     | '/login'
+    | '/logout'
     | '/register'
     | '/signin_jwt_google'
     | '/cart/$cartcode'
@@ -134,6 +144,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/protected'
     | '/login'
+    | '/logout'
     | '/register'
     | '/signin_jwt_google'
     | '/cart/$cartcode'
@@ -147,6 +158,7 @@ export interface FileRouteTypes {
     | '/_authenticated/profile'
     | '/_authenticated/protected'
     | '/_authentication/login'
+    | '/_authentication/logout'
     | '/_authentication/register'
     | '/_authentication/signin_jwt_google'
     | '/cart/$cartcode'
@@ -159,6 +171,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
   AuthenticationLoginRoute: typeof AuthenticationLoginRoute
+  AuthenticationLogoutRoute: typeof AuthenticationLogoutRoute
   AuthenticationRegisterRoute: typeof AuthenticationRegisterRoute
   AuthenticationSignin_jwt_googleRoute: typeof AuthenticationSignin_jwt_googleRoute
   CartCartcodeRoute: typeof CartCartcodeRoute
@@ -225,6 +238,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticationRegisterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authentication/logout': {
+      id: '/_authentication/logout'
+      path: '/logout'
+      fullPath: '/logout'
+      preLoaderRoute: typeof AuthenticationLogoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authentication/login': {
       id: '/_authentication/login'
       path: '/login'
@@ -267,6 +287,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRoute: AuthenticatedRouteWithChildren,
   AuthenticationLoginRoute: AuthenticationLoginRoute,
+  AuthenticationLogoutRoute: AuthenticationLogoutRoute,
   AuthenticationRegisterRoute: AuthenticationRegisterRoute,
   AuthenticationSignin_jwt_googleRoute: AuthenticationSignin_jwt_googleRoute,
   CartCartcodeRoute: CartCartcodeRoute,

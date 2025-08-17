@@ -1,3 +1,4 @@
+import Form from '@/components/form/Form.jsx';
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_authentication/register')({
@@ -5,5 +6,5 @@ export const Route = createFileRoute('/_authentication/register')({
 })
 
 function Register() {
-  return <div>Hello "/_authentication/register"!</div>
+  return <Form route="/api/user/register/" method="register" />
 }
